@@ -4,10 +4,8 @@
  * @param {number} lat latitude for calculating sun-position
  * @param {number} lng longitude for calculating sun-position
  * @return {ISunPosition} result object of sun-position
-*/
+ */
 export function getPosition(dateValue: number | Date, lat: number, lng: number): ISunPosition;
-export var times: Array<ISunTimeNames>;
-export var timesDeprecated: Array<[string, string]>;
 /** adds a custom time to the times config
  * @param {number} angleAltitude - angle of Altitude/elevation above the horizont of the sun in degrees
  * @param {string} riseName - name of sun rise (morning name)
@@ -56,7 +54,7 @@ export function getSunTime(dateValue: number | Date, lat: number, lng: number, e
  * @param {number} lng longitude for calculating sun-time
  * @param {boolean} [degree] true if the angle is in degree and not in rad
  * @return {Date} result time of sun-time
-*/
+ */
 export function getSunTimeByAzimuth(dateValue: number | Date, lat: number, lng: number, nazimuth: number, degree?: boolean): Date;
 /**
  * Calculaes the solar time of the given date in the given latitude and UTC offset.
@@ -74,16 +72,6 @@ export function getSolarTime(dateValue: number | Date, lng: number, utcOffset: n
  * @return {IMoonPosition} result object of moon-position
  */
 export function getMoonPosition(dateValue: number | Date, lat: number, lng: number): IMoonPosition;
-export var moonCycles: {
-    from: number;
-    to: number;
-    id: string;
-    emoji: string;
-    code: string;
-    name: string;
-    weight: number;
-    css: string;
-}[];
 /**
  * calculations for illumination parameters of the moon,
  * based on http://idlastro.gsfc.nasa.gov/ftp/pro/astro/mphase.pro formulas and
@@ -121,6 +109,24 @@ export function moonTransit(rise: number | Date, set: number | Date, lat: number
     main: (Date | null);
     invert: (Date | null);
 };
+/** sun times configuration
+ * @type {Array.<ISunTimeNames>}
+ */
+export const times: Array<ISunTimeNames>;
+/** alternate time names for backward compatibility
+ * @type {Array.<[string, string]>}
+ */
+export const timesDeprecated: Array<[string, string]>;
+export const moonCycles: {
+    from: number;
+    to: number;
+    id: string;
+    emoji: string;
+    code: string;
+    name: string;
+    weight: number;
+    css: string;
+}[];
 export type ISunTimeDef = {
     /**
      * - The Name of the time

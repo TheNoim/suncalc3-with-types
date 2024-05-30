@@ -1,3 +1,5 @@
+This fork is esm only and includes d.ts file in npm release. Nothing more.
+
 
 SunCalc
 =======
